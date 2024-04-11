@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <div class="alert alert-primary" role="alert">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="text-center">
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="login" class="form-label">Username</label> <br/>
+                <input name="username" type="text" class="form-control">
+            </div>
+            <br/>
+            <div>
+                <label for="login_p" class="form-label">Password</label> <br/>
+                <input name="password" type="password" class="form-control">
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-success">enter</button>
+            <a href="/register/">Register</a>
+        </form>
+    </div>
+    
+</body>
+</html>
